@@ -1,5 +1,5 @@
-[submodule "packages/osmosis-test-tube/osmosis"]
-	path = packages/osmosis-test-tube/osmosis
-	url = https://github.com/osmosis-labs/osmosis.git
+[submodule "packages/merlin-test-tube/merlin"]
+	path = packages/merlin-test-tube/merlin
+	url = https://github.com/merlins-labs/merlin.git
 	branch = main
 

@@ -19,7 +19,7 @@ use crate::runner::result::RawResult;
 use crate::runner::result::{RunnerExecuteResult, RunnerResult};
 use crate::runner::Runner;
 
-pub const OSMOSIS_MIN_GAS_PRICE: u128 = 2_500;
+pub const MERLIN_MIN_GAS_PRICE: u128 = 2_500;
 
 #[derive(Debug, PartialEq)]
 pub struct BaseApp {
@@ -87,7 +87,7 @@ impl BaseApp {
             self.address_prefix.clone(),
             signging_key,
             FeeSetting::Auto {
-                gas_price: Coin::new(OSMOSIS_MIN_GAS_PRICE, self.fee_denom.clone()),
+                gas_price: Coin::new(MERLIN_MIN_GAS_PRICE, self.fee_denom.clone()),
                 gas_adjustment: self.default_gas_adjustment,
             },
         ))
@@ -140,7 +140,7 @@ impl BaseApp {
             self.address_prefix.clone(),
             signging_key,
             FeeSetting::Auto {
-                gas_price: Coin::new(OSMOSIS_MIN_GAS_PRICE, self.fee_denom.clone()),
+                gas_price: Coin::new(MERLIN_MIN_GAS_PRICE, self.fee_denom.clone()),
                 gas_adjustment: self.default_gas_adjustment,
             },
         ))
@@ -205,7 +205,7 @@ impl BaseApp {
         let zero_fee = Fee::from_amount_and_gas(
             cosmrs::Coin {
                 denom: self.fee_denom.parse().unwrap(),
-                amount: OSMOSIS_MIN_GAS_PRICE,
+                amount: MERLIN_MIN_GAS_PRICE,
             },
             0u64,
         );

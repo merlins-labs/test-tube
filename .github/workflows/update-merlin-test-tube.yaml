@@ -1,0 +1,51 @@
+name: update merlin-test-tube
+on:
+  workflow_dispatch:
+    name: update merlin-test-tube
+    inputs:
+      merlin_rev:
+        description: "merlin revision"
+        required: true
+        type: string
+
+  workflow_call:
+    inputs:
+      merlin_rev:
+        required: true
+        type: string
+
+env:
+  CARGO_TERM_COLORS: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: ">=1.19.0"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up cargo cache
+        uses: actions/cache@v3
+        continue-on-error: false
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ./scripts/update-merlin-test-tube.sh "$MERLIN_REV"
+
+        env:
+          MERLIN_REV: ${{ inputs.merlin_rev }}

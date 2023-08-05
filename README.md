@@ -1,10 +1,10 @@
 # test-tube
 
-![test](https://github.com/osmosis-labs/test-tube/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/merlins-labs/test-tube/actions/workflows/test.yml/badge.svg)
 
 `test-tube` is a generic library for building testing environments for [CosmWasm](https://cosmwasm.com/) smart contracts. It allows you to test your smart contract logic against the actual Cosmos SDK chain's logic, which is written in Go, using Rust. This eliminates the need to write Go code or learn Go in order to test your smart contracts against the Cosmos SDK.
 
-`test-tube` is currently used to build [`osmosis-test-tube`](https://github.com/osmosis-labs/test-tube/tree/main/packages/osmosis-test-tube), but it can be used to build testing environments for any Cosmos SDK-based chain. To do this, you will need to build a shared library that exports the functions described [here](https://github.com/osmosis-labs/test-tube/blob/ddae11d003b5d900bdee2026034b9b1d4c33bdb3/packages/test-tube/src/bindings.rs#L211-L241). You can use the [Go code](https://github.com/osmosis-labs/test-tube/tree/main/packages/osmosis-test-tube/libosmosistesttube) and [build script](https://github.com/osmosis-labs/test-tube/blob/main/packages/osmosis-test-tube/build.rs) from `osmosis-test-tube` as a reference.
+`test-tube` is currently used to build [`merlin-test-tube`](https://github.com/merlins-labs/test-tube/tree/main/packages/merlin-test-tube), but it can be used to build testing environments for any Cosmos SDK-based chain. To do this, you will need to build a shared library that exports the functions described [here](https://github.com/merlins-labs/test-tube/blob/ddae11d003b5d900bdee2026034b9b1d4c33bdb3/packages/test-tube/src/bindings.rs#L211-L241). You can use the [Go code](https://github.com/merlins-labs/test-tube/tree/main/packages/merlin-test-tube/libmerlintesttube) and [build script](https://github.com/merlins-labs/test-tube/blob/main/packages/merlin-test-tube/build.rs) from `merlin-test-tube` as a reference.
 
 ## Features
 

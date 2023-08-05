@@ -4,10 +4,10 @@
       "path": "."
     },
     {
-      "path": "packages/osmosis-test-tube"
+      "path": "packages/merlin-test-tube"
     },
     {
-      "path": "packages/osmosis-test-tube/libosmosistesttube"
+      "path": "packages/merlin-test-tube/libmerlintesttube"
     }
   ],
   "settings": {}
